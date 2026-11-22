@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/jetbrains-mono';
 @import './tokens.css';
 
 /* Scan this package's components wherever the stylesheet is imported (apps don't scan node_modules). */

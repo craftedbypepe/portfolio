@@ -1,5 +1,8 @@
 export { cn } from './lib/utils';
 
+// Sketch theme primitives (SIE-71)
+export * from './components/sketch/sketch';
+
 // shadcn/ui components
 export * from './components/ui/badge';
 export * from './components/ui/button-group';
