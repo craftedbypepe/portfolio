@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './tokens.css';
+
+/* Scan this package's components wherever the stylesheet is imported (apps don't scan node_modules). */
+@source '../';
