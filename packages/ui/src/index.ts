@@ -1,4 +1,6 @@
 export { cn } from './lib/utils';
+export { BREAKPOINTS, SCREENSHOT_VIEWPORTS } from './breakpoints';
+export type { Breakpoint, ScreenshotViewport } from './breakpoints';
 
 // Sketch theme primitives (SIE-71)
 export * from './components/sketch/sketch';

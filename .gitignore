@@ -26,3 +26,6 @@ raw/
 .vercel/
 .DS_Store
 *.log
+
+# PR screenshots (published to the pr-assets branch, never committed here)
+.screenshots/
