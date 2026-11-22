@@ -10,6 +10,12 @@ export const SCHEMA_VERSION = 2;
 export const CompoundSchema = z.enum(['soft', 'medium', 'hard', 'inter', 'wet', 'unknown']);
 export type Compound = z.infer<typeof CompoundSchema>;
 
+/** Track status during a lap. null = the source doesn't say. */
+export const TrackStatusSchema = z.enum(['green', 'vsc', 'sc', 'formation', 'red']).nullable();
+export type TrackStatus = z.infer<typeof TrackStatusSchema>;
+
+export const DistanceSourceSchema = z.enum(['native', 'estimated-from-speed', 'none']);
+
 export const LicenceSchema = z.object({
   licence: z.string(),
   credit: z.string(),
@@ -30,6 +36,9 @@ export const CarSchema = z.object({
   resultStatus: z.enum(['finished', 'dnf', 'dsq', 'nc', 'retired', 'active', 'unknown']),
   /** "restricted": the player hid their telemetry, so their zeros are not measurements. */
   telemetryStatus: z.enum(['available', 'restricted', 'unknown']),
+  /** Race time from the final classification, excluding penalties. */
+  totalRaceTimeS: z.number().nullable(),
+  penaltiesS: z.number().nullable(),
 });
 export type Car = z.infer<typeof CarSchema>;
 
@@ -49,15 +58,22 @@ export const LapSchema = z.object({
   startTime: z.number().nullable(),
   endTime: z.number().nullable(),
   lapTimeMs: z.number().int().nullable(),
-  lapTimeSource: z.enum(['session-history', 'lap-data']).nullable(),
+  lapTimeSource: z.enum(['session-history', 'lap-data', 'lap-time-history']).nullable(),
   /** Lap time from re-estimated line crossings, before pinning to official times (QA check). */
   derivedLapTimeMs: z.number().int().nullable(),
   sectorTimesMs: z.tuple([z.number().nullable(), z.number().nullable(), z.number().nullable()]),
   valid: z.boolean().nullable(),
   positionAtEnd: z.number().int().nullable(),
   compound: CompoundSchema,
+  compoundDetail: z.string().nullable(),
   tyreAgeLaps: z.number().int().nullable(),
   pitIn: z.boolean(),
+  pitOut: z.boolean(),
+  /** Worst track status seen by this car during the lap (VSC and SC must always be mentioned). */
+  trackStatus: TrackStatusSchema,
+  /** Gaps at the end of the lap, from cumulative official lap times. null when unknown, never backfilled. */
+  gapToAheadMs: z.number().int().nullable(),
+  gapToLeaderMs: z.number().int().nullable(),
   coverage: LapCoverageSchema.nullable(),
   /** Relative path of the trace file, or null when the lap has no usable telemetry. */
   traceFile: z.string().nullable(),
@@ -101,19 +117,58 @@ export const PitStopSchema = z.object({
   /** "stop": the car stopped or changed tyres. "pit-lane-visit": drove through without a stop. */
   kind: z.enum(['stop', 'pit-lane-visit']),
   complete: z.boolean(),
-  entryTime: z.number(),
+  outLap: z.number().int().nullable(),
+  entryTime: z.number().nullable(),
   exitTime: z.number().nullable(),
   laneTimeS: z.number().nullable(),
   stationaryTimeS: z.number().nullable(),
   compoundBefore: CompoundSchema,
   compoundAfter: CompoundSchema,
+  /**
+   * Time lost around the stop: in-lap + out-lap minus two median green laps.
+   * Never call it "pit stop duration" (PRD wording rule).
+   */
+  pitExcessS: z.number().nullable(),
+  /** Worst track status during the in- and out-lap. Stops under VSC/SC lose much less time. */
+  underTrackStatus: TrackStatusSchema,
+  /** Race control: pit entry → tyre change, when the source has both messages. */
+  entryToTyreChangeS: z.number().nullable(),
+  /** What proves the stop happened, e.g. "race-control TYRE_CHANGE". */
+  evidence: z.string(),
 });
 
 export const SessionEventSchema = z.object({
   sessionTime: z.number(),
+  /** Lap of the involved car (or the leader) when known. */
+  lap: z.number().int().nullable(),
   type: z.string(),
   carId: z.string().nullable(),
   otherCarId: z.string().nullable(),
+  detail: z.string().nullable(),
+});
+
+/** Race state at each lap line (k = lap number, 0 = grid). Drives the timing-tower replay. */
+export const LapTimingSchema = z.object({
+  laps: z.array(z.number().int()),
+  leaderTimeS: z.array(z.number().nullable()),
+  cars: z.record(
+    z.string(),
+    z.object({
+      position: z.array(z.number().int().nullable()),
+      cumulativeTimeS: z.array(z.number().nullable()),
+      gapToLeaderMs: z.array(z.number().int().nullable()),
+      gapToAheadMs: z.array(z.number().int().nullable()),
+      /** 'in' on the in-lap, 'out' on the out-lap. */
+      pit: z.array(z.enum(['in', 'out']).nullable()),
+    }),
+  ),
+});
+export type LapTiming = z.infer<typeof LapTimingSchema>;
+
+export const TrackStatusPeriodSchema = z.object({
+  status: z.enum(['vsc', 'sc', 'red']),
+  fromLap: z.number().int(),
+  toLap: z.number().int(),
 });
 
 export const TimingTrackSchema = z.object({
@@ -137,7 +192,7 @@ export const SessionSchema = z.object({
     kind: z.enum(['f1-25-udp', 'linuz90-json', 'openf1']),
     sourceSessionId: z.string(),
     gameVersion: z.string().nullable(),
-    distanceSource: z.enum(['native', 'estimated-from-speed']),
+    distanceSource: DistanceSourceSchema,
   }),
   licence: LicenceSchema,
   track: z.object({
@@ -163,7 +218,13 @@ export const SessionSchema = z.object({
   stints: z.array(StintSchema),
   pitStops: z.array(PitStopSchema),
   events: z.array(SessionEventSchema),
-  timing: TimingTrackSchema,
+  /** ~1 Hz race state (sessions with continuous telemetry), or null. */
+  timing: TimingTrackSchema.nullable(),
+  /** Race state at each lap line, or null. */
+  lapTiming: LapTimingSchema.nullable(),
+  /** Laps with VSC, safety car or red flag, from race control or per-lap status. */
+  trackStatusPeriods: z.array(TrackStatusPeriodSchema),
+  weather: z.string().nullable(),
   quality: z.object({ notes: z.array(z.string()) }),
 });
 export type Session = z.infer<typeof SessionSchema>;
