@@ -1,0 +1,22 @@
+{
+  "id": "E04",
+  "kind": "debrief",
+  "note": "lap B >105% (105.5%): lap warning required, technique gate closed, Losail placeholder names",
+  "input": {
+    "payload": "P4.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["C2", "C3", "C8"],
+    "top3Order": ["C2", "C3", "C8"],
+    "brakingClaimsAllowedOnlyFor": [],
+    "lapWarningRequired": true,
+    "nonReportableFieldsMustNotBeQuoted": ["C2.brakePoint", "C8.brakePoint", "C8.exitSpeed"]
+  }
+}

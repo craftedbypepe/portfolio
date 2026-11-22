@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":\"Lap B is slower than 105% of the session best (105.5%); treat this lap as not representative.\",\"points\":[{\"rank\":1,\"corner\":\"the C2 area\",\"headline\":\"the C2 area: 3.514 s lost, minimum speed 8 km/h lower\",\"driverAction\":\"Review the line and speed trace through the C2 area, focusing on the lower minimum and exit speeds.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":3.514,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-8,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-6,\"path\":\"corners[2].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"the C3 area\",\"headline\":\"the C3 area: 0.418 s lost despite higher minimum and exit speeds\",\"driverAction\":\"Review the timing trace through the C3 area; the segment is slower despite higher reported minimum and exit speeds.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.418,\"path\":\"corners[3].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":14.3,\"path\":\"corners[3].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":16,\"path\":\"corners[3].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"the C8 area\",\"headline\":\"the C8 area: 0.268 s lost, minimum speed 8 km/h higher\",\"driverAction\":\"Review the speed trace and timing through the C8 area to locate where the time is lost.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.268,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":8,\"path\":\"corners[8].minSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"Braking-point changes\",\"reason\":\"Technique claims are not allowed, and the reportable braking-point deltas are null.\"},{\"topic\":\"Exact corner identities\",\"reason\":\"Corner names are provisional; area labels are used instead.\"},{\"topic\":\"Cause of the C3 and C8 losses\",\"reason\":\"The available metrics show time and speed deltas but do not establish their cause.\"}],\"summary\":\"The largest losses are in the C2, C3, and C8 areas. Lap B is flagged as not representative.\"}",
+  "inputTokens": 3072,
+  "outputTokens": 721,
+  "latencyMs": 6199,
+  "costUsd": 0.0006677,
+  "caseId": "E04",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:04.555Z",
+  "source": "live eval run"
+}

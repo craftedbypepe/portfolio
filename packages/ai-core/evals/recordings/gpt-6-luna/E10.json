@@ -1,0 +1,11 @@
+{
+  "text": "{\"calls\":[{\"stateId\":\"R1-lap8-vsc-window\",\"call\":\"VSC window open; consider pitting now while the field is neutralized.\"},{\"stateId\":\"R2-lap9-after-vsc-stop\",\"call\":\"Lost 31.293 seconds around the stop under VSC; you're seventh.\"},{\"stateId\":\"R3-lap11-gap-ahead\",\"call\":\"Gale 1.8 ahead; closing quickly. Keep the pressure on.\"},{\"stateId\":\"R4-lap22-sc-stop-overtakes\",\"call\":\"Safety car pit phase; Softs fitted, you're third. Stay alert in traffic.\"},{\"stateId\":\"R5-lap28-trend-defend\",\"call\":\"Soft lap-time trend rising; Sable 0.3 ahead, Drift 0.2 behind.\"}]}",
+  "inputTokens": 1717,
+  "outputTokens": 510,
+  "latencyMs": 4709,
+  "costUsd": 0.00042670000000000007,
+  "caseId": "E10",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:31.579Z",
+  "source": "live eval run"
+}

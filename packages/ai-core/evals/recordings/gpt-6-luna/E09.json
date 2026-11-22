@@ -1,0 +1,11 @@
+{
+  "text": "{\"answer\":\"I can’t confirm later braking: technique claims are disabled, and the C3 brake-point values are absent. The chart compares brake traces through the C3 area.\",\"chart\":{\"type\":\"line\",\"title\":\"Brake traces through the C3 area\",\"x\":{\"path\":\"trace.d\",\"label\":\"Distance (m)\",\"rangeM\":[1550,1840]},\"series\":[{\"path\":\"trace.brakeA\",\"label\":\"Lap A brake\"},{\"path\":\"trace.brakeB\",\"label\":\"Lap B brake\"}],\"annotations\":[{\"atM\":1550,\"label\":\"C3 area start\",\"sourcePath\":\"corners[3].segment.fromM\"},{\"atM\":1840,\"label\":\"C3 area end\",\"sourcePath\":\"corners[3].segment.toM\"}]},\"refusals\":[{\"topic\":\"Later braking into the C3 area\",\"reason\":\"quality.techniqueClaimsAllowed is false, and corners[3].brakePointM values are null.\"}]}",
+  "inputTokens": 3416,
+  "outputTokens": 369,
+  "latencyMs": 3925,
+  "costUsd": 0.0005261,
+  "caseId": "E09",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:26.865Z",
+  "source": "live eval run"
+}

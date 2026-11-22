@@ -1,0 +1,13 @@
+{
+  "caseId": "E08",
+  "model": "claude-haiku-5-5",
+  "text": "{\"answer\":\"In the T2 area, lap B lost 0.201 s. Minimum speed was 12 km/h lower (83 vs 95), exit speed 12.3 km/h lower, and braking starts about 10 m later than the reference lap.\",\"chart\":{\"type\":\"line\",\"title\":\"T2 area: speed and time delta, lap B vs lap A\",\"x\":{\"path\":\"trace.d\",\"label\":\"Lap distance (m)\",\"rangeM\":[1325,1420]},\"series\":[{\"path\":\"trace.speedA\",\"label\":\"Speed lap A (km/h)\"},{\"path\":\"trace.speedB\",\"label\":\"Speed lap B (km/h)\"},{\"path\":\"trace.deltaS\",\"label\":\"Cumulative time delta (s)\"}],\"annotations\":[{\"atM\":1337.7,\"label\":\"Brake point A\",\"sourcePath\":\"corners[2].brakePointM.a\"},{\"atM\":1347.3,\"label\":\"Brake point B\",\"sourcePath\":\"corners[2].brakePointM.b\"},{\"atM\":1375,\"label\":\"Min speed A (95 km/h)\",\"sourcePath\":\"corners[2].minSpeedKmh.atM.a\"},{\"atM\":1390,\"label\":\"Min speed B (83 km/h)\",\"sourcePath\":\"corners[2].minSpeedKmh.atM.b\"}]},\"refusals\":[{\"topic\":\"Cause of lower speed\",\"reason\":\"The data shows speed and brake timing differences only; it does not show driver inputs or grip, so the cause is not claimed.\"},{\"topic\":\"Throttle and brake traces\",\"reason\":\"Those trace series are not in the chart, so no throttle or brake claim is made here.\"}]}",
+  "usage": {
+    "input_tokens": 7570,
+    "output_tokens": 552
+  },
+  "latencyMs": 5077,
+  "costUsd": 0.001033,
+  "recordedAt": "2026-11-15T13:11:52.215Z",
+  "source": "spike 4 follow-up"
+}

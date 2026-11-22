@@ -1,0 +1,11 @@
+{
+  "text": "{\"answer\":\"The T2 area cost 0.201 s; minimum speed was 12 km/h lower and exit speed 12.3 km/h lower. You also started slowing about 10 m later.\",\"chart\":{\"type\":\"line\",\"title\":\"Lap time delta through the T2 area\",\"x\":{\"path\":\"trace.d\",\"label\":\"Lap distance (m)\",\"rangeM\":[1325,1420]},\"series\":[{\"path\":\"trace.deltaS\",\"label\":\"Time delta (s)\"}],\"annotations\":[{\"atM\":1325,\"label\":\"T2 area begins\",\"sourcePath\":\"corners[2].segment.fromM\"}]},\"refusals\":[]}",
+  "inputTokens": 3594,
+  "outputTokens": 383,
+  "latencyMs": 3692,
+  "costUsd": 0.0005509000000000001,
+  "caseId": "E08",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:22.933Z",
+  "source": "live eval run"
+}

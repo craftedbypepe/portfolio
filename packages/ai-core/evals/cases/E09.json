@@ -1,0 +1,18 @@
+{
+  "id": "E09",
+  "kind": "followup-chart",
+  "note": "driver asks a braking question while the technique gate is closed",
+  "input": {
+    "priorTurn": "debrief from prompt B",
+    "question": "Did I brake later into the C3 area on lap 5? Show me a chart.",
+    "payload": "P4.json"
+  },
+  "expected": {
+    "refusalRequired": "refusals[] mentions braking",
+    "answerMustNotContain": ["brake point values 1660 / 1678.9 / 18.9", "later braking asserted"],
+    "noAnnotationWithSourcePath": "brakePointM",
+    "rangeMMustCover": [1550, 1840],
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "failureSeen": "claude-haiku-5-5 refused but still quoted 1678.9 vs 1660 m and annotated brake points"
+  }
+}

@@ -33,5 +33,7 @@ jobs:
       - run: bun run lint
       - run: bun run type-check
       - run: bun run test
+      - name: Evals (recorded answers, $0, no keys)
+        run: bun run eval
       - run: bun run build
       - run: bun run build-storybook

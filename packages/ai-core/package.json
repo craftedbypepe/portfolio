@@ -18,7 +18,9 @@
     "build": "tsc -p tsconfig.build.json",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "eval": "bun scripts/eval.ts --check-baseline",
+    "eval:live": "bun scripts/eval.ts --live"
   },
   "dependencies": {
     "zod": "^4.6.7"
@@ -27,6 +29,7 @@
     "@portfolio/config": "workspace:*",
     "eslint": "^10.15.0",
     "typescript": "~6.0.3",
-    "vitest": "^5.1.1"
+    "vitest": "^5.1.1",
+    "@types/node": "^26.6.6"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "caseId": "E10",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"calls\":[{\"stateId\":\"R1-lap8-vsc-window\",\"call\":\"VSC deployed, box this lap. Sable is 0.2 behind.\"},{\"stateId\":\"R2-lap9-after-vsc-stop\",\"call\":\"Stopped under VSC, hards on. Gale 5.4 ahead, Sable 0.4 behind.\"},{\"stateId\":\"R3-lap11-gap-ahead\",\"call\":\"Good lap, P6. Gale 1.8 ahead, Sable 0.4 behind.\"},{\"stateId\":\"R4-lap22-sc-stop-overtakes\",\"call\":\"Box under safety car, softs on. P3, Sable 1.7 ahead.\"},{\"stateId\":\"R5-lap28-trend-defend\",\"call\":\"Last lap, P3. Drift 0.2 behind, defend. Sable 0.3 ahead.\"}]}",
+  "usage": {
+    "input_tokens": 3083,
+    "output_tokens": 331
+  },
+  "latencyMs": 2911,
+  "costUsd": 0.009476,
+  "recordedAt": "2026-11-15T13:11:59.203Z",
+  "source": "spike 4 radio (names replaced with handles)"
+}

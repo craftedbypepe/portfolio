@@ -1,0 +1,13 @@
+{
+  "caseId": "E01",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"T12\",\"headline\":\"the T12 area: 0.267 s lost, minimum speed 2 km/h lower\",\"driverAction\":\"Through the T12 area, carry a little more minimum speed (124 vs 126 km/h) and keep the exit speed from dropping 2.4 km/h.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.267,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minSpeedDeltaKmh\",\"value\":-2,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedDeltaKmh\",\"value\":-2.4,\"path\":\"corners[9].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"the T8-T11 area: 0.265 s lost, exit speed 6 km/h lower\",\"driverAction\":\"Through the T8-T11 area, aim to leave the section with more speed (253 vs 259 km/h); this is a linked section, so treat it as one.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.265,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedDeltaKmh\",\"value\":-6,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T2\",\"headline\":\"the T2 area: 0.201 s lost, minimum speed 12 km/h lower\",\"driverAction\":\"Work on the T2 area mid-corner: minimum speed was 83 vs 95 km/h, and exit speed dropped 12.3 km/h. Start slowing about 10 m later was observed.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.201,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedDeltaKmh\",\"value\":-12,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedDeltaKmh\",\"value\":-12.3,\"path\":\"corners[2].exitSpeedKmh.delta\"},{\"metric\":\"brakePointDeltaM\",\"value\":9.6,\"path\":\"corners[2].brakePointM.deltaM\"}]}],\"refusals\":[{\"topic\":\"T12 braking point\",\"reason\":\"reportable.brakePoint is false for the T12 area, so no braking claim.\"},{\"topic\":\"T8-T11 braking and minimum speed\",\"reason\":\"Linked corner; brake point and minimum speed are not reportable.\"},{\"topic\":\"T4 area\",\"reason\":\"Not in the top 3 losses, so not covered.\"},{\"topic\":\"Setup, tyres, grip, handling\",\"reason\":\"The data does not contain these.\"}],\"summary\":\"Lap B lost 0.669 s overall. The biggest losses were the T12 area, the linked T8-T11 area and the T2 area, all with lower speed through and out of the corners.\"}",
+  "usage": {
+    "input_tokens": 5888,
+    "output_tokens": 995
+  },
+  "latencyMs": 8190,
+  "costUsd": 0.021726,
+  "recordedAt": "2026-11-15T13:09:38.382Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

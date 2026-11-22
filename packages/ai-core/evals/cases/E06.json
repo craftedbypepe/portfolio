@@ -1,0 +1,672 @@
+{
+  "id": "E06",
+  "kind": "debrief",
+  "note": "GATE FLIP: same data as E01 but quality.techniqueClaimsAllowed=false -> zero braking claims (tests the flag, not the data)",
+  "input": {
+    "payloadInline": {
+      "schema": "race-eng/lap-comparison@0.2",
+      "payloadId": "P1-mexico-car1-L2-vs-car1-L3",
+      "sessionId": "f1-25:9130aa9d35fe99fa",
+      "track": {
+        "name": "Mexico",
+        "lengthM": 4525,
+        "sectorStartsM": [0, 2037.129, 3591.972]
+      },
+      "lapA": {
+        "carId": "car-1",
+        "lapNumber": 2,
+        "lapTimeMs": 79328,
+        "sectorTimesMs": [29751, 29382, 20194],
+        "valid": true
+      },
+      "lapB": {
+        "carId": "car-1",
+        "lapNumber": 3,
+        "lapTimeMs": 79997,
+        "sectorTimesMs": [29836, 29784, 20376],
+        "valid": true
+      },
+      "convention": "delta = B - A; positive = B slower / later / lower",
+      "method": {
+        "alignment": "lapDistance grid (by metres)",
+        "stepM": 5,
+        "crossings": "first/last sample + local speed",
+        "tauSmoothingM": 10,
+        "anchoring": "official S1, S1+S2, lap time",
+        "cornerMap": "hand map v0 (mexico)",
+        "source": "f1-25-udp"
+      },
+      "quality": {
+        "cornerMapVersion": "provisional",
+        "cornerNamesOfficial": false,
+        "techniqueClaimsAllowed": false,
+        "sectorCheckPassed": true,
+        "sectorChecks": [
+          {
+            "boundaryM": 2037.1,
+            "computedCumulativeS": 0.083,
+            "officialCumulativeS": 0.085,
+            "errorS": -0.002
+          },
+          {
+            "boundaryM": 3592,
+            "computedCumulativeS": 0.495,
+            "officialCumulativeS": 0.487,
+            "errorS": 0.008
+          }
+        ],
+        "reportableThresholds": {
+          "timeDeltaS": 0.03,
+          "brakePointM": 6,
+          "minSpeedKmh": 2,
+          "exitSpeedKmh": 2
+        },
+        "slowLapThresholdPct": 105,
+        "sessionBestLapMs": 78660,
+        "lapFlags": {
+          "a": {
+            "carId": "car-1",
+            "lapNumber": 2,
+            "valid": true,
+            "pctOfSessionBest": 100.8,
+            "slowerThan105pct": false,
+            "standingStart": false
+          },
+          "b": {
+            "carId": "car-1",
+            "lapNumber": 3,
+            "valid": true,
+            "pctOfSessionBest": 101.7,
+            "slowerThan105pct": false,
+            "standingStart": false
+          }
+        },
+        "linkedCorners": ["T8-T11", "T16-T17"],
+        "warnings": []
+      },
+      "totals": {
+        "officialDeltaS": 0.669,
+        "computedDeltaS": 0.669,
+        "sectorDeltasS": [0.085, 0.402, 0.182]
+      },
+      "corners": [
+        {
+          "corner": "Start straight",
+          "segment": {
+            "fromM": 0,
+            "toM": 1100
+          },
+          "timeDeltaS": -0.029,
+          "brakePointM": {
+            "a": null,
+            "b": null,
+            "deltaM": null
+          },
+          "minSpeedKmh": {
+            "a": 259,
+            "b": 260,
+            "delta": 1,
+            "atM": {
+              "a": 0,
+              "b": 0
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 313,
+            "b": 315,
+            "delta": 2
+          },
+          "brakeFlagM": {
+            "a": null,
+            "b": null
+          },
+          "kind": "straight",
+          "linked": false,
+          "areaLabel": "start straight",
+          "reportable": {
+            "time": false,
+            "brakePoint": false,
+            "minSpeed": false,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T1",
+          "segment": {
+            "fromM": 1100,
+            "toM": 1325
+          },
+          "timeDeltaS": 0.023,
+          "brakePointM": {
+            "a": 1128.8,
+            "b": 1146.7,
+            "deltaM": 17.9
+          },
+          "minSpeedKmh": {
+            "a": 121,
+            "b": 117,
+            "delta": -4,
+            "atM": {
+              "a": 1325,
+              "b": 1285
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 121,
+            "b": 119,
+            "delta": -2
+          },
+          "brakeFlagM": {
+            "a": 1135,
+            "b": 1160
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T1 area",
+          "reportable": {
+            "time": false,
+            "brakePoint": true,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T2",
+          "segment": {
+            "fromM": 1325,
+            "toM": 1420
+          },
+          "timeDeltaS": 0.201,
+          "brakePointM": {
+            "a": 1337.7,
+            "b": 1347.3,
+            "deltaM": 9.6
+          },
+          "minSpeedKmh": {
+            "a": 95,
+            "b": 83,
+            "delta": -12,
+            "atM": {
+              "a": 1375,
+              "b": 1390
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 116.3,
+            "b": 104,
+            "delta": -12.3
+          },
+          "brakeFlagM": {
+            "a": 1345,
+            "b": 1355
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T2 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": true,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T3",
+          "segment": {
+            "fromM": 1420,
+            "toM": 2050
+          },
+          "timeDeltaS": -0.111,
+          "brakePointM": {
+            "a": null,
+            "b": null,
+            "deltaM": null
+          },
+          "minSpeedKmh": {
+            "a": 109,
+            "b": 104,
+            "delta": -5,
+            "atM": {
+              "a": 1440,
+              "b": 1420
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 159.7,
+            "b": 158,
+            "delta": -1.7
+          },
+          "brakeFlagM": {
+            "a": null,
+            "b": null
+          },
+          "kind": "flat-or-lift",
+          "linked": false,
+          "areaLabel": "the T3 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": false,
+            "exitSpeed": false
+          }
+        },
+        {
+          "corner": "T4",
+          "segment": {
+            "fromM": 2050,
+            "toM": 2230
+          },
+          "timeDeltaS": 0.196,
+          "brakePointM": {
+            "a": 2045.1,
+            "b": 2038.3,
+            "deltaM": -6.7
+          },
+          "minSpeedKmh": {
+            "a": 96,
+            "b": 93,
+            "delta": -3,
+            "atM": {
+              "a": 2190,
+              "b": 2220
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 111.1,
+            "b": 103.2,
+            "delta": -7.9
+          },
+          "brakeFlagM": {
+            "a": 2055,
+            "b": 2050
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T4 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": true,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T5",
+          "segment": {
+            "fromM": 2230,
+            "toM": 2330
+          },
+          "timeDeltaS": 0.009,
+          "brakePointM": {
+            "a": 2222.1,
+            "b": 2239.8,
+            "deltaM": 17.8
+          },
+          "minSpeedKmh": {
+            "a": 70,
+            "b": 79,
+            "delta": 9,
+            "atM": {
+              "a": 2270,
+              "b": 2260
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 135,
+            "b": 141.2,
+            "delta": 6.2
+          },
+          "brakeFlagM": {
+            "a": 2230,
+            "b": 2250
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T5 area",
+          "reportable": {
+            "time": false,
+            "brakePoint": true,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T6",
+          "segment": {
+            "fromM": 2330,
+            "toM": 2650
+          },
+          "timeDeltaS": -0.132,
+          "brakePointM": {
+            "a": 2350,
+            "b": 2345.3,
+            "deltaM": -4.7
+          },
+          "minSpeedKmh": {
+            "a": 77,
+            "b": 88.9,
+            "delta": 11.9,
+            "atM": {
+              "a": 2415,
+              "b": 2430
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 181.6,
+            "b": 175.3,
+            "delta": -6.3
+          },
+          "brakeFlagM": {
+            "a": 2350,
+            "b": 2350
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T6 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T7",
+          "segment": {
+            "fromM": 2650,
+            "toM": 2850
+          },
+          "timeDeltaS": 0.102,
+          "brakePointM": {
+            "a": 2685,
+            "b": 2685,
+            "deltaM": 0
+          },
+          "minSpeedKmh": {
+            "a": 171,
+            "b": 161,
+            "delta": -10,
+            "atM": {
+              "a": 2775,
+              "b": 2770
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 209.5,
+            "b": 203,
+            "delta": -6.5
+          },
+          "brakeFlagM": {
+            "a": 2690,
+            "b": 2690
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T7 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T8-T11",
+          "segment": {
+            "fromM": 2850,
+            "toM": 3650
+          },
+          "timeDeltaS": 0.265,
+          "brakePointM": {
+            "a": null,
+            "b": null,
+            "deltaM": null
+          },
+          "minSpeedKmh": {
+            "a": 209.5,
+            "b": 203,
+            "delta": -6.5,
+            "atM": {
+              "a": 2850,
+              "b": 2850
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 259,
+            "b": 253,
+            "delta": -6
+          },
+          "brakeFlagM": {
+            "a": null,
+            "b": null
+          },
+          "kind": "flat-or-lift",
+          "linked": true,
+          "areaLabel": "the T8-T11 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": false,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T12",
+          "segment": {
+            "fromM": 3650,
+            "toM": 3950
+          },
+          "timeDeltaS": 0.267,
+          "brakePointM": {
+            "a": 3735,
+            "b": 3736.3,
+            "deltaM": 1.3
+          },
+          "minSpeedKmh": {
+            "a": 126,
+            "b": 124,
+            "delta": -2,
+            "atM": {
+              "a": 3870,
+              "b": 3865
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 190.4,
+            "b": 188,
+            "delta": -2.4
+          },
+          "brakeFlagM": {
+            "a": 3745,
+            "b": 3745
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T12 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T13",
+          "segment": {
+            "fromM": 3950,
+            "toM": 4085
+          },
+          "timeDeltaS": 0.023,
+          "brakePointM": {
+            "a": 3960.3,
+            "b": 3960.6,
+            "deltaM": 0.3
+          },
+          "minSpeedKmh": {
+            "a": 65,
+            "b": 68,
+            "delta": 3,
+            "atM": {
+              "a": 4060,
+              "b": 4055
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 99,
+            "b": 99.4,
+            "delta": 0.4
+          },
+          "brakeFlagM": {
+            "a": 3965,
+            "b": 3965
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T13 area",
+          "reportable": {
+            "time": false,
+            "brakePoint": false,
+            "minSpeed": true,
+            "exitSpeed": false
+          }
+        },
+        {
+          "corner": "T14",
+          "segment": {
+            "fromM": 4085,
+            "toM": 4180
+          },
+          "timeDeltaS": -0.094,
+          "brakePointM": {
+            "a": null,
+            "b": null,
+            "deltaM": null
+          },
+          "minSpeedKmh": {
+            "a": 99,
+            "b": 99.4,
+            "delta": 0.4,
+            "atM": {
+              "a": 4085,
+              "b": 4085
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 171.8,
+            "b": 174,
+            "delta": 2.2
+          },
+          "brakeFlagM": {
+            "a": null,
+            "b": null
+          },
+          "kind": "flat-or-lift",
+          "linked": false,
+          "areaLabel": "the T14 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": false,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T15",
+          "segment": {
+            "fromM": 4180,
+            "toM": 4300
+          },
+          "timeDeltaS": 0.001,
+          "brakePointM": {
+            "a": 4185,
+            "b": 4185,
+            "deltaM": 0
+          },
+          "minSpeedKmh": {
+            "a": 96,
+            "b": 98,
+            "delta": 2,
+            "atM": {
+              "a": 4240,
+              "b": 4250
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 133.3,
+            "b": 138.6,
+            "delta": 5.3
+          },
+          "brakeFlagM": {
+            "a": 4185,
+            "b": 4185
+          },
+          "kind": "braked-corner",
+          "linked": false,
+          "areaLabel": "the T15 area",
+          "reportable": {
+            "time": false,
+            "brakePoint": false,
+            "minSpeed": true,
+            "exitSpeed": true
+          }
+        },
+        {
+          "corner": "T16-T17",
+          "segment": {
+            "fromM": 4300,
+            "toM": 4525
+          },
+          "timeDeltaS": -0.053,
+          "brakePointM": {
+            "a": null,
+            "b": null,
+            "deltaM": null
+          },
+          "minSpeedKmh": {
+            "a": 133.3,
+            "b": 138.6,
+            "delta": 5.3,
+            "atM": {
+              "a": 4300,
+              "b": 4300
+            }
+          },
+          "exitSpeedKmh": {
+            "a": 251.2,
+            "b": 251,
+            "delta": -0.2
+          },
+          "brakeFlagM": {
+            "a": null,
+            "b": null
+          },
+          "kind": "flat-or-lift",
+          "linked": true,
+          "areaLabel": "the T16-T17 area",
+          "reportable": {
+            "time": true,
+            "brakePoint": false,
+            "minSpeed": false,
+            "exitSpeed": false
+          }
+        }
+      ],
+      "topLosses": ["T12", "T8-T11", "T2"]
+    },
+    "derivedFrom": "out/payloads/P1-mexico-car1-L2-vs-car1-L3.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["T12", "T8-T11", "T2"],
+    "top3Order": ["T12", "T8-T11", "T2"],
+    "brakingClaimsAllowedOnlyFor": [],
+    "lapWarningRequired": false,
+    "nonReportableFieldsMustNotBeQuoted": ["T8-T11.brakePoint", "T8-T11.minSpeed", "T12.brakePoint"]
+  }
+}

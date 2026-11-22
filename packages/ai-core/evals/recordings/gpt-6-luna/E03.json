@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"Start straight\",\"headline\":\"the start straight: 0.516 s lost; exit speed was 14 km/h lower\",\"driverAction\":\"On the start straight, work on carrying more speed through the segment; lap B exits at 299 km/h versus 313 km/h.\",\"evidence\":[{\"metric\":\"time loss\",\"value\":0.516,\"path\":\"corners[0].timeDeltaS\"},{\"metric\":\"exit speed delta\",\"value\":-14,\"path\":\"corners[0].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"the T8-T11 area: 0.315 s lost; exit speed was 14 km/h lower\",\"driverAction\":\"Focus on maintaining speed through the linked T8-T11 area; its exit speed is 245 km/h versus 259 km/h.\",\"evidence\":[{\"metric\":\"time loss\",\"value\":0.315,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exit speed delta\",\"value\":-14,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T12\",\"headline\":\"the T12 area: 0.258 s lost; minimum speed was 14 km/h lower\",\"driverAction\":\"At the T12 area, aim to retain more minimum and exit speed; lap B records 112 km/h minimum and 163 km/h exit.\",\"evidence\":[{\"metric\":\"time loss\",\"value\":0.258,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minimum speed delta\",\"value\":-14,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exit speed delta\",\"value\":-27.4,\"path\":\"corners[9].exitSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"braking point in the T8-T11 area\",\"reason\":\"The area is linked and its brake-point metric is not reportable.\"}],\"summary\":\"The largest losses are on the start straight, through the linked T8-T11 area, and in the T12 area.\"}",
+  "inputTokens": 3224,
+  "outputTokens": 456,
+  "latencyMs": 3487,
+  "costUsd": 0.0005504,
+  "caseId": "E03",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:46:58.353Z",
+  "source": "live eval run"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "E03",
+  "kind": "debrief",
+  "note": "top loss is the start straight (no braking point exists): no braking claim, phrase as \"start straight\"",
+  "input": {
+    "payload": "P3.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["Start straight", "T8-T11", "T12"],
+    "top3Order": ["Start straight", "T8-T11", "T12"],
+    "brakingClaimsAllowedOnlyFor": ["T1", "T12", "T13"],
+    "lapWarningRequired": false,
+    "nonReportableFieldsMustNotBeQuoted": [
+      "Start straight.brakePoint",
+      "Start straight.minSpeed",
+      "T8-T11.brakePoint",
+      "T8-T11.minSpeed"
+    ]
+  }
+}

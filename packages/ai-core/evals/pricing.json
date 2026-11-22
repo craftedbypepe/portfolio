@@ -1,0 +1,25 @@
+{
+  "note": "USD per million tokens, base rates. Source: provider pricing pages, fetched 2026-11-15.",
+  "models": {
+    "claude-opus-5-5": {
+      "input": 4,
+      "output": 20
+    },
+    "claude-sonnet-5-5": {
+      "input": 2,
+      "output": 10
+    },
+    "claude-haiku-5-5": {
+      "input": 0.1,
+      "output": 0.5
+    },
+    "gpt-6-luna": {
+      "input": 0.1,
+      "output": 0.5
+    },
+    "gpt-6-astra": {
+      "input": 10,
+      "output": 50
+    }
+  }
+}

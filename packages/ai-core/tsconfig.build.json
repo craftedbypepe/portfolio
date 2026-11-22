@@ -4,8 +4,9 @@
     "rootDir": "src",
     "outDir": "dist",
     "noEmit": false,
-    "lib": ["ES2023", "DOM"]
+    "lib": ["ES2023", "DOM"],
+    "types": ["node"]
   },
   "include": ["src"],
-  "exclude": ["src/**/*.test.ts"]
+  "exclude": ["src/**/*.test.ts", "src/evals/**"]
 }

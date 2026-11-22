@@ -1,0 +1,195 @@
+{
+  "title": "Eval scorecard · live · 2026-11-22",
+  "spentUsd": 0.0059454,
+  "rows": [
+    {
+      "caseId": "E01",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 6759,
+      "costUsd": 0.0006519000000000001
+    },
+    {
+      "caseId": "E02",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 5698,
+      "costUsd": 0.000674
+    },
+    {
+      "caseId": "E03",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 3487,
+      "costUsd": 0.0005504
+    },
+    {
+      "caseId": "E04",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 6199,
+      "costUsd": 0.0006677
+    },
+    {
+      "caseId": "E05",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 5600,
+      "costUsd": 0.0006742
+    },
+    {
+      "caseId": "E06",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 3726,
+      "costUsd": 0.0005761000000000001
+    },
+    {
+      "caseId": "E07",
+      "kind": "debrief",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "top3Set": true,
+        "top3Order": true,
+        "grounded": true,
+        "evidencePaths": true,
+        "gates": true,
+        "lapWarning": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 5345,
+      "costUsd": 0.0006474000000000001
+    },
+    {
+      "caseId": "E08",
+      "kind": "followup-chart",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "chartPaths": true,
+        "grounded": true,
+        "gates": true,
+        "range": true,
+        "cites": true,
+        "refusal": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 3692,
+      "costUsd": 0.0005509000000000001
+    },
+    {
+      "caseId": "E09",
+      "kind": "followup-chart",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "chartPaths": true,
+        "grounded": true,
+        "gates": true,
+        "range": true,
+        "cites": true,
+        "refusal": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 3925,
+      "costUsd": 0.0005261
+    },
+    {
+      "caseId": "E10",
+      "kind": "radio",
+      "pass": true,
+      "checks": {
+        "parsed": true,
+        "allStates": true,
+        "wordLimit": true,
+        "grounded": true,
+        "trackStatus": true,
+        "wording": true
+      },
+      "problems": [],
+      "model": "gpt-6-luna",
+      "origin": "live",
+      "latencyMs": 4709,
+      "costUsd": 0.00042670000000000007
+    }
+  ]
+}

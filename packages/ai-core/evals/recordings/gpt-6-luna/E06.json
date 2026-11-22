@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"the T12 area\",\"headline\":\"the T12 area: 0.267 s lost, minimum speed 2 km/h lower\",\"driverAction\":\"At the T12 area, preserve minimum speed and carry more speed through the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.267,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-2,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-2.4,\"path\":\"corners[9].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"the T8-T11 area\",\"headline\":\"the T8-T11 area: 0.265 s lost, exit speed 6 km/h lower\",\"driverAction\":\"Through the linked T8-T11 area, focus on retaining speed to the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.265,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-6,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"the T2 area\",\"headline\":\"the T2 area: 0.201 s lost, minimum speed 12 km/h lower\",\"driverAction\":\"At the T2 area, avoid losing so much speed at the minimum and carry more speed onto the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.201,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-12,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-12.3,\"path\":\"corners[2].exitSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"Braking-point advice\",\"reason\":\"Braking-point claims are not allowed because quality.techniqueClaimsAllowed is false; braking-point deltas are also null.\"},{\"topic\":\"T4 area\",\"reason\":\"Not included because its time loss is smaller than the three largest reportable corner losses.\"}],\"summary\":\"Largest corner losses are in the T12, T8-T11, and T2 areas; the linked T8-T11 area has no reportable minimum-speed metric.\"}",
+  "inputTokens": 3216,
+  "outputTokens": 509,
+  "latencyMs": 3726,
+  "costUsd": 0.0005761000000000001,
+  "caseId": "E06",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:13.887Z",
+  "source": "live eval run"
+}

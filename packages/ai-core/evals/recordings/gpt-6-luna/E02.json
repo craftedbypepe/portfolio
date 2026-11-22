@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"T3\",\"headline\":\"the T3 area: 0.361 s lost, exit speed 4.1 km/h lower\",\"driverAction\":\"Review the T3 area for a way to carry more speed through the segment and improve the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.361,\"path\":\"corners[3].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-4.1,\"path\":\"corners[3].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T2\",\"headline\":\"the T2 area: 0.179 s lost, exit speed 17.5 km/h lower\",\"driverAction\":\"Focus on the T2 area: preserve more speed through the corner and carry it onto the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.179,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-7.5,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-17.5,\"path\":\"corners[2].exitSpeedKmh.delta\"},{\"metric\":\"brakePointM.deltaM\",\"value\":-6.4,\"path\":\"corners[2].brakePointM.deltaM\"}]},{\"rank\":3,\"corner\":\"T4\",\"headline\":\"the T4 area: 0.134 s lost, minimum speed 5 km/h lower\",\"driverAction\":\"Work on carrying more speed through the T4 area while maintaining the stronger exit speed.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.134,\"path\":\"corners[4].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-5,\"path\":\"corners[4].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":7.8,\"path\":\"corners[4].exitSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"T3 and T4 braking points\",\"reason\":\"Their brakePoint reportable flags are false, so no braking-point observation is made.\"}],\"summary\":\"The largest losses are in the T3, T2, and T4 areas; the T2 area also shows lower minimum and exit speeds.\"}",
+  "inputTokens": 3220,
+  "outputTokens": 704,
+  "latencyMs": 5698,
+  "costUsd": 0.000674,
+  "caseId": "E02",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:46:54.862Z",
+  "source": "live eval run"
+}

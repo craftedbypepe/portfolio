@@ -1,0 +1,20 @@
+{
+  "id": "E08",
+  "kind": "followup-chart",
+  "note": "chart answer, gate open",
+  "input": {
+    "priorTurn": "debrief from prompt B",
+    "question": "Why did I lose time in the T2 area on lap 3? Show me a chart.",
+    "payload": "P1.json"
+  },
+  "expected": {
+    "chartType": ["line"],
+    "xPath": "trace.d",
+    "seriesPathsMustResolve": true,
+    "seriesIncludeOneOf": ["trace.speedA", "trace.speedB", "trace.deltaS"],
+    "rangeMMustCover": [1325, 1420],
+    "annotationsSourcePathEqualsAtM": true,
+    "answerMustCite": ["0.201"],
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs"
+  }
+}
