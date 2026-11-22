@@ -1,0 +1,13 @@
+{
+  "caseId": "E09",
+  "model": "claude-haiku-5-5",
+  "text": "{\"answer\":\"Brake-point comparison is not allowed here: techniqueClaimsAllowed is false. The C3 brake point shows lap 5 at 1678.9 m versus 1660 m on lap 3, a deltaM of 18.9 m, but I cannot give technique advice.\",\"chart\":{\"type\":\"line\",\"title\":\"C3 area: speed and brake trace, lap 3 vs lap 5\",\"x\":{\"path\":\"trace.d\",\"label\":\"Lap distance (m)\",\"rangeM\":[1550,1840]},\"series\":[{\"path\":\"trace.speedA\",\"label\":\"Speed lap 3 (km/h)\"},{\"path\":\"trace.speedB\",\"label\":\"Speed lap 5 (km/h)\"},{\"path\":\"trace.brakeA\",\"label\":\"Brake lap 3\"},{\"path\":\"trace.brakeB\",\"label\":\"Brake lap 5\"}],\"annotations\":[{\"atM\":1660,\"label\":\"Lap 3 brake point\",\"sourcePath\":\"corners[3].brakePointM.a\"},{\"atM\":1678.9,\"label\":\"Lap 5 brake point\",\"sourcePath\":\"corners[3].brakePointM.b\"}]},\"refusals\":[{\"topic\":\"Brake later instruction\",\"reason\":\"quality.techniqueClaimsAllowed is false, so no braking-technique advice; only an observation is shown.\"},{\"topic\":\"Brake point reportability\",\"reason\":\"Brake point for C3 is reportable (brakePoint true), so it is cited as an observation only.\"}]}",
+  "usage": {
+    "input_tokens": 7236,
+    "output_tokens": 497
+  },
+  "latencyMs": 3387,
+  "costUsd": 0.000972,
+  "recordedAt": "2026-11-15T13:11:55.603Z",
+  "source": "spike 4 follow-up"
+}

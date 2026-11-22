@@ -1,0 +1,13 @@
+{
+  "caseId": "E01",
+  "model": "claude-haiku-5-5",
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"T12\",\"headline\":\"the T12 area: 0.267 s lost, minimum speed 2 km/h lower, exit speed 2.4 km/h lower\",\"driverAction\":\"Carry more speed through the T12 area exit; the lap lost time there and exit speed was lower, so focus on getting back up to speed earlier.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.267,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-2,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-2.4,\"path\":\"corners[9].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"the T8-T11 area: 0.265 s lost, exit speed 6 km/h lower\",\"driverAction\":\"Work on the T8-T11 area exit, where speed was 6 km/h lower; keep the car pointed earlier and carry speed through the sequence.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.265,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-6,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T2\",\"headline\":\"the T2 area: 0.201 s lost, minimum speed 12 km/h lower, braking starts about 10 m later\",\"driverAction\":\"In the T2 area, braking starts about 10 m later than the reference lap; the minimum speed was 12 km/h lower, so review entry speed and the exit line.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.201,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-12,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-12.3,\"path\":\"corners[2].exitSpeedKmh.delta\"},{\"metric\":\"brakePointM.deltaM\",\"value\":9.6,\"path\":\"corners[2].brakePointM.deltaM\"}]}],\"refusals\":[{\"topic\":\"T12 braking point\",\"reason\":\"reportable.brakePoint is false for T12, so no braking observation is made.\"},{\"topic\":\"T8-T11 braking and minimum speed\",\"reason\":\"The corner is linked and reportable.brakePoint and reportable.minSpeed are false, so neither is claimed.\"},{\"topic\":\"Corner names\",\"reason\":\"Corner map is provisional (cornerNamesOfficial false), so only areaLabel names are used.\"},{\"topic\":\"Causes beyond the data\",\"reason\":\"Setup, tyres, fuel, grip, balance and lock-ups are not in the data and are not claimed.\"}],\"summary\":\"Lap B is 0.669 s slower than lap A, with all quality flags clean. The biggest losses are the T12 area, the T8-T11 area exit and the T2 area entry.\"}",
+  "usage": {
+    "input_tokens": 5888,
+    "output_tokens": 1985
+  },
+  "latencyMs": 9967,
+  "costUsd": 0.001581,
+  "recordedAt": "2026-11-15T13:09:40.149Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

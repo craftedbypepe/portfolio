@@ -1,0 +1,22 @@
+{
+  "id": "E02",
+  "kind": "debrief",
+  "note": "car-vs-car, lap B faster overall (-0.174 s) but loses in T3/T2/T4: must not say B was slower overall",
+  "input": {
+    "payload": "P2.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["T3", "T2", "T4"],
+    "top3Order": ["T3", "T2", "T4"],
+    "brakingClaimsAllowedOnlyFor": ["T2", "T12", "T13"],
+    "lapWarningRequired": false,
+    "nonReportableFieldsMustNotBeQuoted": ["T3.brakePoint", "T3.minSpeed", "T4.brakePoint"]
+  }
+}

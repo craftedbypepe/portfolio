@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"T12\",\"headline\":\"the T12 area: 0.267 s lost; exit speed 2.4 km/h lower\",\"driverAction\":\"Work on carrying speed through the T12 area and building a stronger exit; the measured exit speed is lower.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.267,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-2.4,\"path\":\"corners[9].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"the T8-T11 area: 0.265 s lost; exit speed 6 km/h lower\",\"driverAction\":\"Review the linked T8-T11 section for time loss and focus on preserving speed to its exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.265,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-6,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T2\",\"headline\":\"the T2 area: 0.201 s lost; minimum speed 12 km/h lower\",\"driverAction\":\"At the T2 area, work on maintaining more speed through the minimum and carrying it to the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.201,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-12,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-12.3,\"path\":\"corners[2].exitSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"T12 braking point\",\"reason\":\"No reportable braking-point measurement is available for this corner.\"},{\"topic\":\"T8-T11 braking point\",\"reason\":\"This is a linked corner section, so no braking-point claim is made.\"}],\"summary\":\"The largest losses are in the T12 area, the linked T8-T11 area, and the T2 area.\"}",
+  "inputTokens": 3249,
+  "outputTokens": 654,
+  "latencyMs": 6759,
+  "costUsd": 0.0006519000000000001,
+  "caseId": "E01",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:46:49.151Z",
+  "source": "live eval run"
+}

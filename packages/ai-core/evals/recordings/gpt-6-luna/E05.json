@@ -1,0 +1,11 @@
+{
+  "text": "{\"lapWarning\":\"Lap 1 is INVALID (track limits / game flag), slower than 105% of the session best (108.1%), and a standing-start lap; not representative.\",\"points\":[{\"rank\":1,\"corner\":\"C9\",\"headline\":\"the C9 area: 1.835 s lost; exit speed 22 km/h lower\",\"driverAction\":\"Review the C9 area, focusing on carrying more speed through this segment and building exit speed.\",\"evidence\":[{\"metric\":\"time loss (s)\",\"value\":1.835,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"exit speed delta (km/h)\",\"value\":-22,\"path\":\"corners[9].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"Start straight\",\"headline\":\"the start straight: 1.376 s lost; exit speed 101 km/h lower\",\"driverAction\":\"Review the start straight and its exit; this loss may be affected by the standing start, so avoid treating it as representative.\",\"evidence\":[{\"metric\":\"time loss (s)\",\"value\":1.376,\"path\":\"corners[0].timeDeltaS\"},{\"metric\":\"exit speed delta (km/h)\",\"value\":-101,\"path\":\"corners[0].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"C8\",\"headline\":\"the C8 area: 0.953 s lost; minimum speed 25.8 km/h lower\",\"driverAction\":\"Review the C8 area and work on retaining speed through the segment; treat the comparison cautiously because the lap is invalid and not representative.\",\"evidence\":[{\"metric\":\"time loss (s)\",\"value\":0.953,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"minimum speed delta (km/h)\",\"value\":-25.8,\"path\":\"corners[8].minSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"Braking-point technique\",\"reason\":\"Technique claims are not allowed for this comparison, so no braking-point observation or instruction is made.\"},{\"topic\":\"Specific cause of the losses\",\"reason\":\"The lap is invalid, slower than 105% of the session best, and a standing-start lap; the comparison does not establish the cause of these losses.\"}],\"summary\":\"The largest reported losses are in the C9 area, start straight, and C8 area. Treat this lap as non-representative.\"}",
+  "inputTokens": 3187,
+  "outputTokens": 711,
+  "latencyMs": 5600,
+  "costUsd": 0.0006742,
+  "caseId": "E05",
+  "model": "gpt-6-luna",
+  "recordedAt": "2026-11-22T21:47:10.160Z",
+  "source": "live eval run"
+}

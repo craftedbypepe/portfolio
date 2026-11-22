@@ -1,0 +1,13 @@
+{
+  "caseId": "E10",
+  "model": "claude-haiku-5-5",
+  "text": "{\"calls\":[{\"stateId\":\"R1-lap8-vsc-window\",\"call\":\"VSC is out, box window open. Drift 0.5 ahead, Sable 0.2 behind.\"},{\"stateId\":\"R2-lap9-after-vsc-stop\",\"call\":\"Stop done under VSC, time lost 31.293 seconds. Now P7, Gale 5.4 ahead.\"},{\"stateId\":\"R3-lap11-gap-ahead\",\"call\":\"Good pace, we're P6. Gale 1.8 ahead, closing. Keep pushing.\"},{\"stateId\":\"R4-lap22-sc-stop-overtakes\",\"call\":\"Safety car, we're P3 after the stop. Sable 1.7 ahead, Drift 3.1 behind.\"},{\"stateId\":\"R5-lap28-trend-defend\",\"call\":\"Final lap. Sable 0.3 ahead, Drift 0.2 behind. Defend P3.\"}]}",
+  "usage": {
+    "input_tokens": 3083,
+    "output_tokens": 350
+  },
+  "latencyMs": 2756,
+  "costUsd": 0.000483,
+  "recordedAt": "2026-11-15T13:11:58.363Z",
+  "source": "spike 4 radio (names replaced with handles)"
+}

@@ -1,0 +1,13 @@
+{
+  "caseId": "E03",
+  "model": "claude-haiku-5-5",
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"Start straight\",\"headline\":\"Start straight area: 0.516 s lost, exit speed 14 km/h lower than the reference lap\",\"driverAction\":\"Work on full-throttle deployment out of the start straight; lap B was 14 km/h slower at the end of this section.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.516,\"path\":\"corners[0].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[0].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"The T8-T11 area: 0.315 s lost, exit speed 14 km/h lower\",\"driverAction\":\"Focus on carrying speed through the linked T8-T11 sequence and getting back on the throttle earlier and more fully on exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.315,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T12\",\"headline\":\"The T12 area: 0.258 s lost, minimum speed 14 km/h lower and exit speed 27.4 km/h lower\",\"driverAction\":\"Brake-start appears about 18.4 m later in lap B; reduce the slowdown at the apex and focus on a stronger exit from T12.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.258,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-27.4,\"path\":\"corners[9].exitSpeedKmh.delta\"},{\"metric\":\"brakePointM.deltaM\",\"value\":18.4,\"path\":\"corners[9].brakePointM.deltaM\"}]}],\"refusals\":[{\"topic\":\"T8-T11 minimum speed\",\"reason\":\"minSpeed is not reportable for this linked corner, so no minimum-speed claim is made.\"},{\"topic\":\"T8-T11 braking points\",\"reason\":\"Corner is linked and brakePoint is not reportable, so no braking claim is made.\"},{\"topic\":\"T7 time delta\",\"reason\":\"timeDeltaS is not reportable for T7, and its delta of 0.004 is below the 0.03 threshold.\"},{\"topic\":\"Causes of the losses\",\"reason\":\"The data contains no setup, tyre, fuel, grip, balance or lock-up information, so no causes are claimed.\"},{\"topic\":\"Corner names\",\"reason\":\"Corner map is provisional and names are not official, so only areaLabel names are used.\"}],\"summary\":\"Lap B lost 1.586 s overall. The largest losses were the start straight, T8-T11 and T12, all with lower exit speed. Lap is valid and within limits.\"}",
+  "usage": {
+    "input_tokens": 5887,
+    "output_tokens": 2104
+  },
+  "latencyMs": 9521,
+  "costUsd": 0.001641,
+  "recordedAt": "2026-11-15T13:09:59.456Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

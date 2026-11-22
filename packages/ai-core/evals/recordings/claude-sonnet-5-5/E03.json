@@ -1,0 +1,13 @@
+{
+  "caseId": "E03",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"Start straight\",\"headline\":\"the start straight area: 0.516 s lost, exit speed 14 km/h lower\",\"driverAction\":\"Look at the run along the start straight, where the exit speed is 299 km/h versus 313 km/h on the reference lap.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.516,\"path\":\"corners[0].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[0].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T8-T11\",\"headline\":\"the T8-T11 area: 0.315 s lost, exit speed 14 km/h lower\",\"driverAction\":\"Review this flat-out section as a whole; the exit speed is 245 km/h versus 259 km/h, so look for where speed was given away.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.315,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[8].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"T12\",\"headline\":\"the T12 area: 0.258 s lost, minimum speed 14 km/h lower\",\"driverAction\":\"Work on carrying more speed through the T12 area; exit speed is 163 km/h versus 190.4 km/h, and the car starts slowing about 18 m later.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.258,\"path\":\"corners[9].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-14,\"path\":\"corners[9].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-27.4,\"path\":\"corners[9].exitSpeedKmh.delta\"},{\"metric\":\"brakePointM.deltaM\",\"value\":18.4,\"path\":\"corners[9].brakePointM.deltaM\"}]}],\"refusals\":[{\"topic\":\"Start straight and T8-T11 braking points and minimum speed\",\"reason\":\"Not reportable for these segments (straight/flat-or-lift, linked), so no technique claims were made.\"},{\"topic\":\"T8-T11 braking technique\",\"reason\":\"The corner is linked and has no reportable brake point.\"},{\"topic\":\"Setup, tyres, grip, handling\",\"reason\":\"The data does not contain this information.\"}],\"summary\":\"Lap B is 1.586 s slower. The biggest losses are the start straight, the T8-T11 area and the T12 area, mostly through lower exit speeds.\"}",
+  "usage": {
+    "input_tokens": 5887,
+    "output_tokens": 894
+  },
+  "latencyMs": 6187,
+  "costUsd": 0.020714,
+  "recordedAt": "2026-11-15T13:09:50.633Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

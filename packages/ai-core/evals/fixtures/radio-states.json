@@ -1,0 +1,252 @@
+[
+  {
+    "stateId": "R1-lap8-vsc-window",
+    "purpose": "VSC just deployed on lap 8: pit window",
+    "replayTimeS": 733,
+    "lap": 8,
+    "lapsTotal": 29,
+    "position": 3,
+    "lastLapTimeS": 92.393,
+    "trackStatus": "VSC",
+    "gapAhead": {
+      "driver": "Drift",
+      "gapS": 0.5,
+      "changeOverLastLapS": 0,
+      "asOfLap": 5
+    },
+    "gapBehind": {
+      "driver": "Sable",
+      "gapS": 0.2,
+      "changeOverLastLapS": 0,
+      "asOfLap": 5
+    },
+    "tyres": {
+      "compound": "Medium",
+      "stintStartLap": 1,
+      "tyreAgeLaps": 7,
+      "stintLapTimeTrendSPerLap": 0.209,
+      "lapTimeTrendNote": "full-stint fit from strategy tool; a lap-time trend, not a tyre-wear measurement"
+    },
+    "lastStop": null,
+    "stopInProgress": null,
+    "recentEvents": [],
+    "eventConvention": "overtake: \"by\" passed \"on\" (F1 25 OVTK packet order); events from the last 45 s"
+  },
+  {
+    "stateId": "R2-lap9-after-vsc-stop",
+    "purpose": "lap 9 complete after the lap-8 stop under VSC",
+    "replayTimeS": 864,
+    "lap": 10,
+    "lapsTotal": 29,
+    "position": 7,
+    "lastLapTimeS": 116.027,
+    "trackStatus": "green",
+    "gapAhead": {
+      "driver": "Gale",
+      "gapS": 5.4,
+      "changeOverLastLapS": 0,
+      "asOfLap": 9
+    },
+    "gapBehind": {
+      "driver": "Sable",
+      "gapS": 0.4,
+      "changeOverLastLapS": -1,
+      "asOfLap": 9
+    },
+    "tyres": {
+      "compound": "Hard",
+      "stintStartLap": 9,
+      "tyreAgeLaps": 1,
+      "stintLapTimeTrendSPerLap": 0.015,
+      "lapTimeTrendNote": "full-stint fit from strategy tool; a lap-time trend, not a tyre-wear measurement"
+    },
+    "lastStop": {
+      "inLap": 8,
+      "compoundAfter": "hard",
+      "timeLostAroundStopS": 31.293,
+      "underSafetyCar": "vsc"
+    },
+    "stopInProgress": null,
+    "recentEvents": [
+      {
+        "type": "position-change",
+        "by": "Mako",
+        "from": 3,
+        "to": 7
+      }
+    ],
+    "eventConvention": "overtake: \"by\" passed \"on\" (F1 25 OVTK packet order); events from the last 45 s"
+  },
+  {
+    "stateId": "R3-lap11-gap-ahead",
+    "purpose": "lap 11 complete: closing on the car ahead",
+    "replayTimeS": 1047,
+    "lap": 12,
+    "lapsTotal": 29,
+    "position": 6,
+    "lastLapTimeS": 91.784,
+    "trackStatus": "green",
+    "gapAhead": {
+      "driver": "Gale",
+      "gapS": 1.8,
+      "changeOverLastLapS": -2.2,
+      "asOfLap": 11
+    },
+    "gapBehind": {
+      "driver": "Sable",
+      "gapS": 0.4,
+      "changeOverLastLapS": -1,
+      "asOfLap": 9
+    },
+    "tyres": {
+      "compound": "Hard",
+      "stintStartLap": 9,
+      "tyreAgeLaps": 3,
+      "stintLapTimeTrendSPerLap": 0.015,
+      "lapTimeTrendNote": "full-stint fit from strategy tool; a lap-time trend, not a tyre-wear measurement"
+    },
+    "lastStop": {
+      "inLap": 8,
+      "compoundAfter": "hard",
+      "timeLostAroundStopS": 31.293,
+      "underSafetyCar": "vsc"
+    },
+    "stopInProgress": null,
+    "recentEvents": [
+      {
+        "type": "position-change",
+        "by": "Mako",
+        "from": 7,
+        "to": 6
+      }
+    ],
+    "eventConvention": "overtake: \"by\" passed \"on\" (F1 25 OVTK packet order); events from the last 45 s"
+  },
+  {
+    "stateId": "R4-lap22-sc-stop-overtakes",
+    "purpose": "lap 22 stop under safety car, pit-related overtakes",
+    "replayTimeS": 2093,
+    "lap": 23,
+    "lapsTotal": 29,
+    "position": 3,
+    "lastLapTimeS": 108.338,
+    "trackStatus": "safety car",
+    "gapAhead": {
+      "driver": "Sable",
+      "gapS": 1.7,
+      "changeOverLastLapS": 1,
+      "asOfLap": 21
+    },
+    "gapBehind": {
+      "driver": "Drift",
+      "gapS": 3.1,
+      "changeOverLastLapS": 0,
+      "asOfLap": 21
+    },
+    "tyres": {
+      "compound": "Soft",
+      "stintStartLap": 23,
+      "tyreAgeLaps": 0,
+      "stintLapTimeTrendSPerLap": 1.784,
+      "lapTimeTrendNote": "full-stint fit from strategy tool; a lap-time trend, not a tyre-wear measurement"
+    },
+    "lastStop": {
+      "inLap": 8,
+      "compoundAfter": "hard",
+      "timeLostAroundStopS": 31.293,
+      "underSafetyCar": "vsc"
+    },
+    "stopInProgress": {
+      "inLap": 22,
+      "underSafetyCar": "sc",
+      "compoundAfter": "soft"
+    },
+    "recentEvents": [
+      {
+        "type": "pit-entry",
+        "by": "Mako"
+      },
+      {
+        "type": "overtake",
+        "by": "Drift",
+        "on": "Mako",
+        "detail": "pit-related"
+      },
+      {
+        "type": "overtake",
+        "by": "Rook",
+        "on": "Mako",
+        "detail": "pit-related"
+      },
+      {
+        "type": "overtake",
+        "by": "Mako",
+        "on": "Sable",
+        "detail": "pit-related"
+      },
+      {
+        "type": "overtake",
+        "by": "Mako",
+        "on": "Drift",
+        "detail": "pit-related"
+      },
+      {
+        "type": "overtake",
+        "by": "Mako",
+        "on": "Rook",
+        "detail": "pit-related"
+      }
+    ],
+    "eventConvention": "overtake: \"by\" passed \"on\" (F1 25 OVTK packet order); events from the last 45 s"
+  },
+  {
+    "stateId": "R5-lap28-trend-defend",
+    "purpose": "lap 28: soft stint lap-time trend, car right behind",
+    "replayTimeS": 2716,
+    "lap": 29,
+    "lapsTotal": 29,
+    "position": 3,
+    "lastLapTimeS": 91.114,
+    "trackStatus": "green",
+    "gapAhead": {
+      "driver": "Sable",
+      "gapS": 0.3,
+      "changeOverLastLapS": 0,
+      "asOfLap": 28
+    },
+    "gapBehind": {
+      "driver": "Drift",
+      "gapS": 0.2,
+      "changeOverLastLapS": 0,
+      "asOfLap": 28
+    },
+    "tyres": {
+      "compound": "Soft",
+      "stintStartLap": 23,
+      "tyreAgeLaps": 6,
+      "stintLapTimeTrendSPerLap": 1.784,
+      "lapTimeTrendNote": "full-stint fit from strategy tool; a lap-time trend, not a tyre-wear measurement"
+    },
+    "lastStop": {
+      "inLap": 22,
+      "compoundAfter": "soft",
+      "timeLostAroundStopS": 70.055,
+      "underSafetyCar": "sc"
+    },
+    "stopInProgress": null,
+    "recentEvents": [
+      {
+        "type": "overtake",
+        "by": "Sable",
+        "on": "Mako"
+      },
+      {
+        "type": "position-change",
+        "by": "Mako",
+        "from": 2,
+        "to": 3
+      }
+    ],
+    "eventConvention": "overtake: \"by\" passed \"on\" (F1 25 OVTK packet order); events from the last 45 s"
+  }
+]

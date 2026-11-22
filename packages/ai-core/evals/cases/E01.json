@@ -1,0 +1,22 @@
+{
+  "id": "E01",
+  "kind": "debrief",
+  "note": "clean same-car pair; T2 braking observation allowed (approximate), T8-T11 linked",
+  "input": {
+    "payload": "P1.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["T12", "T8-T11", "T2"],
+    "top3Order": ["T12", "T8-T11", "T2"],
+    "brakingClaimsAllowedOnlyFor": ["T1", "T2", "T4", "T5"],
+    "lapWarningRequired": false,
+    "nonReportableFieldsMustNotBeQuoted": ["T8-T11.brakePoint", "T8-T11.minSpeed", "T12.brakePoint"]
+  }
+}

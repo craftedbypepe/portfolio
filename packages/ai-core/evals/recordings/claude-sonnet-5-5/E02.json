@@ -1,0 +1,13 @@
+{
+  "caseId": "E02",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"lapWarning\":null,\"points\":[{\"rank\":1,\"corner\":\"T3\",\"headline\":\"the T3 area: 0.361 s lost, exit speed 4.1 km/h lower\",\"driverAction\":\"Work on the run out of the T3 area: exit speed is 158.1 km/h versus 162.2 km/h on the reference lap, which carries over the following section.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.361,\"path\":\"corners[3].timeDeltaS\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-4.1,\"path\":\"corners[3].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"T2\",\"headline\":\"the T2 area: 0.179 s lost, minimum speed 7.5 km/h lower\",\"driverAction\":\"Slow down about 6 m earlier than the reference here; the lower minimum speed of 100.5 km/h leaves the exit 17.5 km/h slower. Aim to carry more speed through the middle.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.179,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-7.5,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":-17.5,\"path\":\"corners[2].exitSpeedKmh.delta\"},{\"metric\":\"brakePointM.delta\",\"value\":-6.4,\"path\":\"corners[2].brakePointM.deltaM\"}]},{\"rank\":3,\"corner\":\"T4\",\"headline\":\"the T4 area: 0.134 s lost, minimum speed 5 km/h lower\",\"driverAction\":\"Minimum speed is 95 km/h versus 100 km/h on the reference. Focus on carrying more mid-corner speed in the T4 area; the exit is already faster.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.134,\"path\":\"corners[4].timeDeltaS\"},{\"metric\":\"minSpeedKmh.delta\",\"value\":-5,\"path\":\"corners[4].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedKmh.delta\",\"value\":7.8,\"path\":\"corners[4].exitSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"T3 minimum speed\",\"reason\":\"reportable.minSpeed is false for the T3 area, so it is not cited.\"},{\"topic\":\"T4 braking point\",\"reason\":\"reportable.brakePoint is false for the T4 area, so no braking claim is made.\"},{\"topic\":\"Setup, tyres, grip and handling\",\"reason\":\"The data does not contain these.\"}],\"summary\":\"Lap B is faster overall, but the largest losses are in the T3, T2 and T4 areas, all linked to lower minimum or exit speed.\"}",
+  "usage": {
+    "input_tokens": 5890,
+    "output_tokens": 957
+  },
+  "latencyMs": 6052,
+  "costUsd": 0.02135,
+  "recordedAt": "2026-11-15T13:09:44.442Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

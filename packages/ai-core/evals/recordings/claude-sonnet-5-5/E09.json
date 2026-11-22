@@ -1,0 +1,13 @@
+{
+  "caseId": "E09",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"answer\":\"I can't make a braking-point claim: quality.techniqueClaimsAllowed is false. The chart shows speed and brake traces for lap 3 and lap 5 across the C3 area, 1550 to 1840 m, so you can compare them yourself.\",\"chart\":{\"type\":\"line\",\"title\":\"the C3 area: speed and brake, lap 3 vs lap 5\",\"x\":{\"path\":\"trace.d\",\"label\":\"Lap distance (m)\",\"rangeM\":[1550,1840]},\"series\":[{\"path\":\"trace.speedA\",\"label\":\"Lap 3 speed (km/h)\"},{\"path\":\"trace.speedB\",\"label\":\"Lap 5 speed (km/h)\"},{\"path\":\"trace.brakeA\",\"label\":\"Lap 3 brake\"},{\"path\":\"trace.brakeB\",\"label\":\"Lap 5 brake\"}],\"annotations\":[{\"atM\":1550,\"label\":\"the C3 area starts\",\"sourcePath\":\"corners[3].segment.fromM\"},{\"atM\":1840,\"label\":\"the C3 area ends\",\"sourcePath\":\"corners[3].segment.toM\"}]},\"refusals\":[{\"topic\":\"Braking point comparison for the C3 area\",\"reason\":\"quality.techniqueClaimsAllowed is false, so no claim about braking earlier or later is made, even though the brake point is flagged reportable.\"}]}",
+  "usage": {
+    "input_tokens": 7202,
+    "output_tokens": 449
+  },
+  "latencyMs": 3352,
+  "costUsd": 0.018894,
+  "recordedAt": "2026-11-15T13:11:56.290Z",
+  "source": "spike 4 follow-up"
+}

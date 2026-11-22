@@ -1,0 +1,13 @@
+{
+  "caseId": "E08",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"answer\":\"In the T2 area you lost 0.201 s. Minimum speed was 83 vs 95 km/h (12 km/h lower) and exit speed was 104 vs 116.3 km/h. Braking point was about 10 m later, but the data doesn't say why.\",\"chart\":{\"type\":\"line\",\"title\":\"T2 area: speed lap 3 vs lap 2\",\"x\":{\"path\":\"trace.d\",\"label\":\"Lap distance (m)\",\"rangeM\":[1325,1420]},\"series\":[{\"path\":\"trace.speedA\",\"label\":\"Lap 2 speed (km/h)\"},{\"path\":\"trace.speedB\",\"label\":\"Lap 3 speed (km/h)\"}],\"annotations\":[{\"atM\":1337.7,\"label\":\"Lap 2 starts slowing\",\"sourcePath\":\"corners[2].brakePointM.a\"},{\"atM\":1347.3,\"label\":\"Lap 3 starts slowing, about 10 m later\",\"sourcePath\":\"corners[2].brakePointM.b\"},{\"atM\":1375,\"label\":\"Lap 2 minimum speed 95 km/h\",\"sourcePath\":\"corners[2].minSpeedKmh.atM.a\"},{\"atM\":1390,\"label\":\"Lap 3 minimum speed 83 km/h\",\"sourcePath\":\"corners[2].minSpeedKmh.atM.b\"}]},\"refusals\":[{\"topic\":\"Cause of the lower minimum speed\",\"reason\":\"Throttle, brake and steering traces are not summarised in the data given, and grip, handling, lock-ups and setup are not in the data, so no cause is claimed.\"},{\"topic\":\"Braking instruction\",\"reason\":\"The braking point is only an approximate observation, not advice to brake earlier or later.\"}]}",
+  "usage": {
+    "input_tokens": 7512,
+    "output_tokens": 578
+  },
+  "latencyMs": 5786,
+  "costUsd": 0.020804,
+  "recordedAt": "2026-11-15T13:11:52.936Z",
+  "source": "spike 4 follow-up"
+}

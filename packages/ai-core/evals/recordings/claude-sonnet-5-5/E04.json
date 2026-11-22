@@ -1,0 +1,13 @@
+{
+  "caseId": "E04",
+  "model": "claude-sonnet-5-5",
+  "text": "{\"lapWarning\":\"Lap 5 is slower than 105% of the session best (105.5%): not representative. Corner names are placeholders except T1 and T16.\",\"points\":[{\"rank\":1,\"corner\":\"C2\",\"headline\":\"the C2 area: 3.514 s lost, minimum speed 8 km/h lower\",\"driverAction\":\"Focus on the C2 area: minimum speed was 8 km/h lower and exit speed 6 km/h lower. Carry more speed through the middle and onto the exit.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":3.514,\"path\":\"corners[2].timeDeltaS\"},{\"metric\":\"minSpeedDeltaKmh\",\"value\":-8,\"path\":\"corners[2].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedDeltaKmh\",\"value\":-6,\"path\":\"corners[2].exitSpeedKmh.delta\"}]},{\"rank\":2,\"corner\":\"C3\",\"headline\":\"the C3 area: 0.418 s lost despite higher minimum and exit speed\",\"driverAction\":\"Time was lost in the C3 area even with 14.3 km/h higher minimum speed. Review the entry and the approach to this section on the replay.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.418,\"path\":\"corners[3].timeDeltaS\"},{\"metric\":\"minSpeedDeltaKmh\",\"value\":14.3,\"path\":\"corners[3].minSpeedKmh.delta\"},{\"metric\":\"exitSpeedDeltaKmh\",\"value\":16,\"path\":\"corners[3].exitSpeedKmh.delta\"}]},{\"rank\":3,\"corner\":\"C8\",\"headline\":\"the C8 area: 0.268 s lost, minimum speed 8 km/h higher\",\"driverAction\":\"The C8 area lost 0.268 s despite higher minimum speed. Check the line and the section after the corner for where time went.\",\"evidence\":[{\"metric\":\"timeDeltaS\",\"value\":0.268,\"path\":\"corners[8].timeDeltaS\"},{\"metric\":\"minSpeedDeltaKmh\",\"value\":8,\"path\":\"corners[8].minSpeedKmh.delta\"}]}],\"refusals\":[{\"topic\":\"Braking points\",\"reason\":\"quality.techniqueClaimsAllowed is false, so no braking point claims are made for any corner.\"},{\"topic\":\"C8 exit speed\",\"reason\":\"Exit speed for the C8 area is not reportable.\"},{\"topic\":\"C2 braking point\",\"reason\":\"Brake point for the C2 area is not reportable.\"},{\"topic\":\"Causes of the time loss\",\"reason\":\"The data has no setup, tyre, grip or handling information, so no cause is claimed.\"}],\"summary\":\"Lap 5 was not representative at 105.5% of session best. The C2 area lost the most time, then the C3 and C8 areas. No technique claims are made.\"}",
+  "usage": {
+    "input_tokens": 5614,
+    "output_tokens": 960
+  },
+  "latencyMs": 6266,
+  "costUsd": 0.020828,
+  "recordedAt": "2026-11-15T13:09:56.903Z",
+  "source": "spike 4 (prompt B + structured output, effort low)"
+}

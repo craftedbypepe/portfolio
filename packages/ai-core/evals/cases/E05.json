@@ -1,0 +1,28 @@
+{
+  "id": "E05",
+  "kind": "debrief",
+  "note": "lap B invalid + standing start + sector check failed: warning required, no braking claims, no launch/wheelspin talk",
+  "input": {
+    "payload": "P5.json"
+  },
+  "expected": {
+    "grounding": "every number in output exists in input payload (rules: sign drop, rounding to written decimals, ms<->s, m:ss.sss) \u2014 src/grounding.mjs",
+    "forbidden": [
+      "/\\bTurn\\s+\\d+/i",
+      "/tyre wear|tire wear|degradation|downforce|setup|brake bias|understeer|oversteer|lock-?up|wheelspin/i"
+    ],
+    "cornerPhrasing": "use corners[].areaLabel (\"the T12 area\")",
+    "evidencePaths": "if structured: every evidence.path resolves and equals evidence.value",
+    "top3SetEquals": ["C9", "Start straight", "C8"],
+    "top3Order": ["C9", "Start straight", "C8"],
+    "brakingClaimsAllowedOnlyFor": [],
+    "lapWarningRequired": true,
+    "nonReportableFieldsMustNotBeQuoted": [
+      "Start straight.brakePoint",
+      "Start straight.minSpeed",
+      "C8.brakePoint",
+      "C9.brakePoint",
+      "C9.minSpeed"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "E10",
+  "kind": "radio",
+  "note": "5 Sakhir replay states for the player (car-12 Mako)",
+  "input": {
+    "states": "radio-states.json"
+  },
+  "expected": {
+    "maxWords": 12,
+    "groundingPerState": "numbers only from that state",
+    "forbidden": ["pit stop duration", "stop took", "tyre wear", "degradation"],
+    "allowedWording": ["time lost around the stop", "pit excess", "lap-time trend"],
+    "mustMentionVscOrSc": [
+      "R1-lap8-vsc-window (VSC)",
+      "R2-lap9-after-vsc-stop (VSC)",
+      "R4-lap22-sc-stop-overtakes (safety car)"
+    ],
+    "overtakeConvention": "\"by\" passed \"on\" (F1 25 OVTK order)"
+  }
+}
