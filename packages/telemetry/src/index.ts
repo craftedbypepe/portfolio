@@ -1,5 +1,10 @@
 export { NOISE_THRESHOLDS, isAboveNoise } from './thresholds.js';
 export type { NoiseMetric } from './thresholds.js';
 export { formatLapTime } from './format.js';
-export { LapSummarySchema } from './schema.js';
-export type { LapSummary } from './schema.js';
+export * from './model.js';
+export * from './align.js';
+export { handleFor } from './pseudonym.js';
+export { convertF125Recording, RACEIQ_LICENCE } from './f1-25/convert.js';
+export type { ConvertOptions, ConvertedSession } from './f1-25/convert.js';
+export { readFrames, newContainerStats } from './f1-25/container.js';
+export type { ContainerStats } from './f1-25/container.js';

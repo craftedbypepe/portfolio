@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LapSummarySchema, formatLapTime, isAboveNoise } from './index.js';
+import { formatLapTime, isAboveNoise } from './index.js';
 
 describe('formatLapTime', () => {
   it('formats minutes, seconds and milliseconds', () => {
@@ -19,18 +19,5 @@ describe('isAboveNoise', () => {
     expect(isAboveNoise('timeS', -0.03)).toBe(true);
     expect(isAboveNoise('speedKmh', 1.9)).toBe(false);
     expect(isAboveNoise('distanceM', 6)).toBe(true);
-  });
-});
-
-describe('LapSummarySchema', () => {
-  it('keeps unknown validity as null', () => {
-    const lap = LapSummarySchema.parse({
-      carIndex: 0,
-      lapNumber: 2,
-      lapTimeMs: 78_123,
-      sectorTimesMs: [25_000, 27_000, 26_123],
-      valid: null,
-    });
-    expect(lap.valid).toBeNull();
   });
 });

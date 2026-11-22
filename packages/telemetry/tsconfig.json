@@ -2,7 +2,9 @@
   "extends": "@portfolio/config/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node"],
+    "lib": ["ES2023", "DOM"]
   },
-  "include": ["src", "*.config.ts"]
+  "include": ["src", "scripts", "*.config.ts"]
 }
