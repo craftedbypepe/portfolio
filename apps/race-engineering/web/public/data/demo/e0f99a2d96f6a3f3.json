@@ -1,0 +1,14 @@
+{
+  "kind": "debrief",
+  "request": { "sessionId": "f1-25:9130aa9d35fe99fa", "a": { "carId": "car-1", "lap": 2 }, "b": { "carId": "car-1", "lap": 3 } },
+  "model": "claude-sonnet-5-5",
+  "promptVersion": "debrief-b-v1",
+  "recordedAt": "2026-11-15",
+  "placeholder": true,
+  "note": "Recorded during spike 4. Replaced by a fresh recording with the reviewed corner map in phase 6. Corner names are provisional.",
+  "points": [
+    { "area": "T12", "timeLostS": 0.267, "finding": "Minimum speed 2 km/h lower.", "action": "Carry a little more minimum speed (124 vs 126 km/h) and keep the exit speed from dropping 2.4 km/h." },
+    { "area": "T8–T11", "timeLostS": 0.265, "finding": "Exit speed 6 km/h lower.", "action": "Aim to leave the section with more speed (253 vs 259 km/h). It's a linked section, so treat it as one." },
+    { "area": "T2", "timeLostS": 0.201, "finding": "Minimum speed 12 km/h lower.", "action": "Minimum speed was 83 vs 95 km/h, and exit speed dropped 12.3 km/h." }
+  ]
+}
