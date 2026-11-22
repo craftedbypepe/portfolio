@@ -10,23 +10,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const colours = [
-  'background',
-  'foreground',
-  'card',
-  'popover',
-  'primary',
-  'primary-foreground',
-  'secondary',
-  'muted',
-  'muted-foreground',
-  'accent',
-  'destructive',
-  'border',
-  'input',
-  'ring',
+  'paper',
+  'paper-2',
+  'ink',
+  'ink-2',
+  'ink-3',
+  'hairline',
+  'hairline-soft',
+  'info',
+  'info-subtle',
+  'success',
+  'success-subtle',
+  'warning',
+  'warning-subtle',
+  'danger',
+  'danger-subtle',
   'gain',
   'loss',
-  'warning',
+  'reference',
+  'highlight',
 ];
 
 export const Colour: Story = {
@@ -45,7 +47,7 @@ export const Colour: Story = {
   ),
 };
 
-const typeSteps = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'];
+const typeSteps = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl'];
 
 export const Type: Story = {
   render: () => (

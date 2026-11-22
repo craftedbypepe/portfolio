@@ -1,5 +1,5 @@
 import type { Preview, ReactRenderer } from '@storybook/react-vite';
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import { TooltipProvider } from '../src/components/ui/tooltip';
 import '../src/styles/globals.css';
 
@@ -10,9 +10,10 @@ const preview: Preview = {
     controls: { matchers: { color: /(background|color)$/i } },
   },
   decorators: [
-    withThemeByClassName<ReactRenderer>({
-      themes: { light: '', dark: 'dark' },
-      defaultTheme: 'light',
+    withThemeByDataAttribute<ReactRenderer>({
+      themes: { sketch: 'sketch', blueprint: 'blueprint', dark: 'dark' },
+      defaultTheme: 'sketch',
+      attributeName: 'data-theme',
     }),
     (Story) => (
       <TooltipProvider>

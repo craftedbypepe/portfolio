@@ -1,59 +1,85 @@
 /*
  * Design tokens: the single source of truth for every portfolio project.
- * Placeholder neutral values; phase 5 design replaces them.
- * Themes: light by default, dark via a `.dark` class or `data-theme="dark"` on an ancestor.
- * Each project app can override any variable for its own personality.
+ *
+ * Current look: the "sketch" theme (build on sketch, design in parallel; SIE-71).
+ * Ink on paper, hairline structure, square corners, no shadows, grotesk headings with mono labels.
+ * The final design per project replaces these values; feature code only uses the semantic names.
+ *
+ * Themes: sketch (default), blueprint (`data-theme="blueprint"`), dark (`.dark` or `data-theme="dark"`).
  */
 
 @custom-variant dark (&:is(.dark *, [data-theme='dark'] *));
 
 :root {
-  /* Colour (shadcn/ui naming) */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  /* Raw palette: paper and ink */
+  --paper: oklch(0.975 0.006 85);
+  --paper-2: oklch(0.945 0.008 85);
+  --ink: oklch(0.2 0.005 270);
+  --ink-2: oklch(0.45 0.005 270);
+  --ink-3: oklch(0.65 0.005 270);
+  --hairline: oklch(0.2 0.005 270);
+  --hairline-soft: oklch(0.82 0.006 85);
+  --grid-dot: oklch(0.8 0.006 85);
 
-  /* Data colours: time gained / lost (lap comparison), status */
-  --gain: oklch(0.62 0.17 150);
-  --loss: oklch(0.6 0.2 25);
-  --warning: oklch(0.78 0.16 75);
+  /* Semantic colours: use by meaning, never by hue */
+  --info: oklch(0.5 0.12 250);
+  --info-subtle: oklch(0.94 0.03 250);
+  --success: oklch(0.55 0.13 150);
+  --success-subtle: oklch(0.94 0.04 150);
+  --warning: oklch(0.68 0.14 70);
+  --warning-subtle: oklch(0.95 0.05 80);
+  --danger: oklch(0.57 0.18 30);
+  --danger-subtle: oklch(0.94 0.04 30);
 
-  /* Radius */
-  --radius: 0.625rem;
+  /* Data colours (charts and the track map): time gained / lost, reference lap, highlight */
+  --gain: var(--success);
+  --loss: var(--danger);
+  --reference: var(--info);
+  --highlight: var(--warning);
 
-  /* Type scale (rem) */
+  /* shadcn/ui roles, mapped onto paper and ink */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-2);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-2);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--paper-2);
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--info);
+
+  /* Shape: square corners */
+  --radius: 0px;
+
+  /* Type */
   --type-xs: 0.75rem;
   --type-sm: 0.875rem;
   --type-base: 1rem;
   --type-lg: 1.125rem;
   --type-xl: 1.25rem;
   --type-2xl: 1.5rem;
-  --type-3xl: 1.875rem;
-  --family-sans: ui-sans-serif, system-ui, sans-serif;
-  --family-mono: ui-monospace, 'SFMono-Regular', monospace;
+  --type-3xl: 2rem;
+  --type-4xl: 2.75rem;
+  --family-sans: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --family-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
 
   /* Spacing base unit (Tailwind multiplies it: p-4 = 4 units) */
   --space-unit: 0.25rem;
 
-  /* Elevation */
-  --elevation-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-  --elevation-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
-  --elevation-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+  /* Elevation: none in the sketch theme (structure comes from lines) */
+  --elevation-xs: none;
+  --elevation-sm: none;
+  --elevation-md: none;
+  --elevation-lg: none;
 
   /* Motion */
   --duration-fast: 120ms;
@@ -64,33 +90,41 @@
   --easing-exit: cubic-bezier(0.3, 0, 1, 1);
 }
 
-.dark,
-[data-theme='dark'] {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --gain: oklch(0.72 0.17 150);
-  --loss: oklch(0.7 0.19 25);
-  --warning: oklch(0.82 0.15 75);
+/* Blueprint: blue ink on pale paper */
+[data-theme='blueprint'] {
+  --paper: oklch(0.965 0.012 240);
+  --paper-2: oklch(0.93 0.018 240);
+  --ink: oklch(0.32 0.09 255);
+  --ink-2: oklch(0.48 0.07 255);
+  --ink-3: oklch(0.65 0.05 255);
+  --hairline: oklch(0.32 0.09 255);
+  --hairline-soft: oklch(0.82 0.03 245);
+  --grid-dot: oklch(0.8 0.03 245);
+  --info: oklch(0.45 0.13 255);
 }
 
-/* Tailwind reads the tokens above, so utilities like bg-primary, text-sm, p-4 or ease-standard use them.
-   Motion durations are used directly: duration-(--duration-base). */
+/* Dark: chalk on slate */
+.dark,
+[data-theme='dark'] {
+  --paper: oklch(0.2 0.005 270);
+  --paper-2: oklch(0.25 0.005 270);
+  --ink: oklch(0.95 0.005 85);
+  --ink-2: oklch(0.75 0.005 85);
+  --ink-3: oklch(0.55 0.005 85);
+  --hairline: oklch(0.75 0.005 85);
+  --hairline-soft: oklch(0.35 0.005 270);
+  --grid-dot: oklch(0.35 0.005 270);
+  --info: oklch(0.72 0.12 250);
+  --info-subtle: oklch(0.3 0.05 250);
+  --success: oklch(0.74 0.14 150);
+  --success-subtle: oklch(0.3 0.05 150);
+  --warning: oklch(0.8 0.14 75);
+  --warning-subtle: oklch(0.32 0.05 75);
+  --danger: oklch(0.7 0.17 30);
+  --danger-subtle: oklch(0.3 0.06 30);
+}
+
+/* Tailwind reads the tokens above, so utilities like bg-primary, text-loss, border-hairline-soft or font-mono use them. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -110,14 +144,33 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-hairline: var(--hairline);
+  --color-hairline-soft: var(--hairline-soft);
+
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
   --color-gain: var(--gain);
   --color-loss: var(--loss);
-  --color-warning: var(--warning);
+  --color-reference: var(--reference);
+  --color-highlight: var(--highlight);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  /* Radius scales from one token, so radius 0 makes every corner square */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) * 1.4);
 
   --text-xs: var(--type-xs);
   --text-sm: var(--type-sm);
@@ -126,11 +179,13 @@
   --text-xl: var(--type-xl);
   --text-2xl: var(--type-2xl);
   --text-3xl: var(--type-3xl);
+  --text-4xl: var(--type-4xl);
   --font-sans: var(--family-sans);
   --font-mono: var(--family-mono);
 
   --spacing: var(--space-unit);
 
+  --shadow-xs: var(--elevation-xs);
   --shadow-sm: var(--elevation-sm);
   --shadow-md: var(--elevation-md);
   --shadow-lg: var(--elevation-lg);
@@ -145,7 +200,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -155,4 +215,24 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+/* Sketch utilities */
+@utility bg-dot-grid {
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+@utility bg-hatch {
+  background-image: repeating-linear-gradient(-45deg, currentColor 0 1px, transparent 1px 6px);
+}
+@utility bg-hatch-cross {
+  background-image:
+    repeating-linear-gradient(-45deg, currentColor 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(45deg, currentColor 0 1px, transparent 1px 6px);
+}
+@utility label-mono {
+  font-family: var(--family-mono);
+  font-size: var(--type-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
