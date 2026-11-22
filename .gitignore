@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+dist/
+.turbo/
+storybook-static/
+coverage/
+*.tsbuildinfo
+
+# Secrets: never commit. Keys live in Vercel env and a local env file only.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Raw data: never published (privacy + licences).
+# Only converted, anonymised session files under apps/*/web/public/data are committed.
+raw/
+**/raw-recordings/
+**/linuz90-raw/
+*.rqs
+*.rqsd
+*.f1rec
+
+# Local tooling
+.vercel/
+.DS_Store
+*.log
