@@ -1,0 +1,10 @@
+{
+  "extends": "@portfolio/config/tsconfig.react.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src", ".storybook", "vitest.config.ts"]
+}
