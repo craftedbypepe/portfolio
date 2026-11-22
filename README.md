@@ -30,6 +30,23 @@ bun run lint
 bun run type-check
 ```
 
+## PR screenshots
+
+Every PR that changes UI shows screenshots at the standard viewports (mobile 390×844, tablet 834×1194,
+laptop 1280×800, wide 1536×960; defined in `packages/ui/src/breakpoints.ts`).
+
+```sh
+# 1. Build what you want to capture (app or Storybook), then:
+bun run screenshots --serve apps/race-engineering/web/dist --spa --out .screenshots/pr-12 --shot home=/
+bun run screenshots --serve packages/ui/storybook-static --out .screenshots/pr-12 \
+  --shot sample="/iframe.html?id=sketch-primitives--sample-screen&viewMode=story" --dark
+
+# 2. Upload to the pr-assets branch and add the table to the PR description:
+bun run screenshots:publish 12 .screenshots/pr-12 --ticket SIE-72
+```
+
+Images live on the `pr-assets` branch (never merged). `.screenshots/` is git-ignored.
+
 ## Principles
 
 - Facts come from deterministic tools; the AI picks, explains and is checked.
