@@ -18,7 +18,9 @@ import {
   type Lap,
   type LapTrace,
   type Session,
+  type TrackStatus,
 } from '../model.js';
+import { periodsFromLaps, worseStatus } from '../track-status.js';
 import { handleFor } from '../pseudonym.js';
 import { Bytes } from './bytes.js';
 import { newContainerStats, readFrames, type ContainerStats } from './container.js';
@@ -61,6 +63,8 @@ const sessionTypeOf = (t: number): Session['sessionType'] => {
   return 'unknown';
 };
 const compoundOf = (visual: number): Compound => P.VISUAL_COMPOUND[visual] ?? 'unknown';
+// Session packet safety-car status: 0 none, 1 full SC, 2 VSC, 3 formation lap.
+const TRACK_STATUS: Record<number, TrackStatus> = { 0: 'green', 1: 'sc', 2: 'vsc', 3: 'formation' };
 const RESULT: Record<number, Car['resultStatus']> = {
   2: 'active',
   3: 'finished',
@@ -98,6 +102,8 @@ interface ClosedLap {
   kind: Lap['kind'];
   compound: Compound;
   tyreAge: number | null;
+  compoundDetail: string | null;
+  trackStatus: TrackStatus;
   pitIn: boolean;
   raw: RawLap;
 }
@@ -123,6 +129,8 @@ interface CarState {
   age: number | null;
   lapCompound: Compound;
   lapAge: number | null;
+  lapCompoundDetail: string | null;
+  lapTrackStatus: TrackStatus;
   raw: RawLap;
   laps: ClosedLap[];
   pit: PitState | null;
@@ -144,12 +152,13 @@ interface Accumulator {
   events: Session['events'];
   lapData: { frame: number; cars: P.LapDataCar[] } | null;
   motion: { frame: number; cars: P.CarMotion[] } | null;
-  timing: Session['timing'];
+  timing: NonNullable<Session['timing']>;
   nextTimingT: number;
   tFirst: number;
   tLast: number;
   regressions: number;
   grid: Map<number, number>;
+  trackStatusNow: TrackStatus;
 }
 
 const emptyRaw = (): RawLap => ({
@@ -192,6 +201,8 @@ export const convertF125Recording = (
         age: null,
         lapCompound: 'unknown',
         lapAge: null,
+        lapCompoundDetail: null,
+        lapTrackStatus: null,
         raw: emptyRaw(),
         laps: [],
         pit: null,
@@ -239,6 +250,8 @@ export const convertF125Recording = (
       kind,
       compound: c.lapCompound,
       tyreAge: c.lapAge,
+      compoundDetail: c.lapCompoundDetail,
+      trackStatus: c.lapTrackStatus,
       pitIn: c.pitIn,
       raw: c.raw,
     });
@@ -270,6 +283,7 @@ export const convertF125Recording = (
         tFirst: Infinity,
         tLast: 0,
         regressions: 0,
+        trackStatusNow: null,
         grid: new Map(),
       };
       accs.set(h.sessionUid, a);
@@ -281,9 +295,12 @@ export const convertF125Recording = (
     acc.tLast = Math.max(acc.tLast, t);
 
     switch (h.packetId) {
-      case 1:
-        acc.session ??= P.parseSession(b);
+      case 1: {
+        const info = P.parseSession(b);
+        acc.session ??= info;
+        acc.trackStatusNow = TRACK_STATUS[info.safetyCarStatus] ?? null;
         break;
+      }
       case 4:
         acc.participants = P.parseParticipants(b).cars;
         break;
@@ -310,6 +327,8 @@ export const convertF125Recording = (
             e.otherVehicleIdx !== null && e.otherVehicleIdx < P.MAX_CARS
               ? carId(e.otherVehicleIdx)
               : null,
+          lap: null,
+          detail: null,
         });
         break;
       }
@@ -377,12 +396,15 @@ export const convertF125Recording = (
             c.statusVotes = [0, 0, 0, 0, 0];
             c.pitIn = false;
             c.lapCompound = c.compound;
+            c.lapCompoundDetail = c.compoundDetail;
+            c.lapTrackStatus = acc.trackStatusNow;
             c.lapAge = c.age;
           } else if (c.prev && c.prev.resultStatus !== 3 && ld.resultStatus === 3) {
             closeLap(acc, c, t, ld, true); // finished: the game keeps currentLapNum on the final lap
             c.finished = true;
           }
           c.statusVotes[ld.driverStatus] = (c.statusVotes[ld.driverStatus] ?? 0) + 1;
+          c.lapTrackStatus = worseStatus(c.lapTrackStatus, acc.trackStatusNow);
           const wasIn = (c.prev?.pitStatus ?? 0) > 0;
           const isIn = ld.pitStatus > 0;
           if (!wasIn && isIn && c.prev) {
@@ -413,6 +435,13 @@ export const convertF125Recording = (
               stationaryTimeS: c.pit.stopMs ? c.pit.stopMs / 1000 : null,
               compoundBefore: c.pit.compoundBefore,
               compoundAfter: changed ? c.compound : c.pit.compoundBefore,
+              outLap: ld.currentLapNum,
+              pitExcessS: null,
+              underTrackStatus: null,
+              entryToTyreChangeS: null,
+              evidence: stopped
+                ? 'lap-data pit stop timer or tyre change'
+                : 'lap-data pit status only',
             });
             c.pit = null;
           }
@@ -501,6 +530,11 @@ export const convertF125Recording = (
           stationaryTimeS: null,
           compoundBefore: c.pit.compoundBefore,
           compoundAfter: 'unknown',
+          outLap: null,
+          pitExcessS: null,
+          underTrackStatus: null,
+          entryToTyreChangeS: null,
+          evidence: 'recording ended in the pit lane',
         });
       }
     }
@@ -537,6 +571,8 @@ export const convertF125Recording = (
         finalPosition: fc?.position || ldNow?.position || null,
         resultStatus: RESULT[fc?.resultStatus ?? ldNow?.resultStatus ?? 0] ?? 'unknown',
         telemetryStatus,
+        totalRaceTimeS: null,
+        penaltiesS: null,
       });
 
       const history = a.history.get(i);
@@ -657,8 +693,13 @@ export const convertF125Recording = (
           valid,
           positionAtEnd: cl.positionAtEnd,
           compound: cl.compound,
+          compoundDetail: cl.compoundDetail,
           tyreAgeLaps: cl.tyreAge,
           pitIn: cl.pitIn || a.pits.some((p) => p.carId === carId(i) && p.lap === cl.lapNumber),
+          pitOut: a.pits.some((p) => p.carId === carId(i) && p.outLap === cl.lapNumber),
+          trackStatus: cl.trackStatus,
+          gapToAheadMs: null,
+          gapToLeaderMs: null,
           coverage,
           traceFile,
         });
@@ -717,6 +758,9 @@ export const convertF125Recording = (
       pitStops: a.pits,
       events: a.events.sort((x, y) => x.sessionTime - y.sessionTime),
       timing: a.timing,
+      lapTiming: null,
+      trackStatusPeriods: periodsFromLaps(laps.filter((l) => l.carId === carId(a.player))),
+      weather: null,
       quality: { notes },
     };
     return { session, traces };

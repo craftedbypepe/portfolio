@@ -19,7 +19,8 @@
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "convert:raceiq": "bun scripts/convert-raceiq.ts"
+    "convert:raceiq": "bun scripts/convert-raceiq.ts",
+    "convert:linuz90": "bun scripts/convert-linuz90.ts"
   },
   "dependencies": {
     "zod": "^4.6.7"
